@@ -16,7 +16,7 @@ def dict_without(orig_dict: Dict[Any, Any], keys_to_remove: Iterable[Any]) -> Di
     return new_dict
 
 class NominalizationDetector():    
-    original_model_hub_name = "kleinay/nominalization-candidate-classifier"
+    original_model_hub_name = "biu-nlp/nominalization-candidate-classifier"
     
     def __init__(self, model_hub_name = None, device: int = -1):
         "device (int, optional): -1 for CPU (default), >=0 refers to CUDA device ordinal. Defaults to -1."
