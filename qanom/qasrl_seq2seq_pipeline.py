@@ -37,7 +37,7 @@ def load_trained_model(name_or_path):
     model = AutoModelForSeq2SeqLM.from_pretrained(name_or_path)  
     # load preprocessing_kwargs from the model repo on HF hub, or from the local model directory
     kwargs_filename = None
-    if name_or_path.startswith("kleinay/") and 'preprocessing_kwargs.json' in HFhub.list_repo_files(name_or_path):
+    if (name_or_path.startswith("kleinay/") or name_or_path.startswith("biu-nlp")) and 'preprocessing_kwargs.json' in HFhub.list_repo_files(name_or_path):
         kwargs_filename = HFhub.hf_hub_download(repo_id=name_or_path, filename="preprocessing_kwargs.json")
     elif Path(name_or_path).is_dir() and (Path(name_or_path) / "experiment_kwargs.json").exists():
         kwargs_filename = Path(name_or_path) / "experiment_kwargs.json"
